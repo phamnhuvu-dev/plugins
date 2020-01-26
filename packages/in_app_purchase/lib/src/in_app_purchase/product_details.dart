@@ -17,8 +17,8 @@ class ProductDetails {
       @required this.title,
       @required this.description,
       @required this.price,
-      this.skProduct = null,
-      this.skuDetail = null});
+      this.skProduct,
+      this.skuDetail});
 
   /// The identifier of the product, specified in App Store Connect or Sku in Google Play console.
   final String id;
@@ -67,9 +67,7 @@ class ProductDetails {
 /// A list of [ProductDetails] can be obtained from the this response.
 class ProductDetailsResponse {
   ProductDetailsResponse(
-      {@required this.productDetails,
-      @required this.notFoundIDs,
-      this.error = null});
+      {@required this.productDetails, @required this.notFoundIDs, this.error});
 
   /// Each [ProductDetails] uniquely matches one valid identifier in [identifiers] of [InAppPurchaseConnection.queryProductDetails].
   final List<ProductDetails> productDetails;
@@ -84,5 +82,5 @@ class ProductDetailsResponse {
   ///
   /// It's possible for this to be null but for there still to be notFoundIds in cases where the request itself was a success but the
   /// requested IDs could not be found.
-  final PurchaseError error;
+  final IAPError error;
 }
