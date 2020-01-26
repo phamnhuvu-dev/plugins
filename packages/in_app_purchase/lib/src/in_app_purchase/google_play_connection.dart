@@ -299,4 +299,9 @@ class GooglePlayConnection
 
     return purchaseDetails;
   }
+
+  @override
+  Future<List<PurchaseDetails>> getUndealPurchases() {
+    return null;
+  }
 }
