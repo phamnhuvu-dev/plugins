@@ -105,7 +105,7 @@
 
     NSMutableArray *maps = [NSMutableArray new];
     for (SKPaymentTransaction *transaction in [SKPaymentQueue defaultQueue].transactions) {
-        if (transaction.transactionState == SKPaymentTransactionStatePurchased || transaction.transactionState == SKPaymentTransactionStateFailed) {
+        if (transaction.transactionState == SKPaymentTransactionStatePurchased || transaction.transactionState == SKPaymentTransactionStateFailed || transaction.transactionState == SKPaymentTransactionStateRestored) {
             [maps addObject:[FIAObjectTranslator getMapFromSKPaymentTransaction:transaction]];
         }
 
